@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:dynamodb="http://docs.socialsignin.org/schema/data/dynamodb"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+        ">
+
+    <jpa:repositories base-package="jp.ddd.server.usecase.gateway.rds"/>
+    <context:property-placeholder location="classpath:spring/*.properties"/>
+
+    <!-- ================================ mysql ================================  -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName">
+            <value>${jdbc.driver.class}</value>
+        </property>
+        <property name="url">
+            <value>${jdbc.connect}://${jdbc.host.port}/${jdbc.schema}?useUnicode=true&amp;characterEncoding=UTF-8&amp;connectionCollation=utf8mb4_general_ci</value>
+        </property>
+        <property name="username">
+            <value>${jdbc.user}</value>
+        </property>
+        <property name="password">
+            <value>${jdbc.pass}</value>
+        </property>
+        <property name="maxIdle" value="1"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
+    <bean id="entityManagerFactory"
+          class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="packagesToScan" value="jp.ddd.server.adapter.gateway.rds.entity"/>
+        <property name="dataSource" ref="dataSource"/>
+        <!-- <property name="persistenceXmlLocation" value="classpath:persistence.xml"/> -->
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+                <property name="showSql" value="true"/>
+                <property name="generateDdl" value="false"/>
+                <property name="database" value="MYSQL"/>
+            </bean>
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- ================================ redis ================================ -->
+    <bean id="jedisConnFactory"
+          class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          p:database="0" p:host-name="localhost" p:port="6379" p:password=""
+          p:use-pool="true" p:pool-config-ref="jedisPoolConfig"/>
+
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
+          p:connection-factory-ref="jedisConnFactory"/>
+
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig"
+          p:maxTotal="150" p:minIdle="5" p:maxIdle="15"/>
+
+    <!--&lt;!&ndash; queue &ndash;&gt;-->
+    <bean id="queue"
+          class="org.springframework.data.redis.support.collections.DefaultRedisList">
+        <constructor-arg ref="redisTemplate"/>
+        <constructor-arg value="queue-key"/>
+    </bean>
+
+<<<<<<< HEAD
+    <!-- ================================ dynamodb ================================ -->
+    <!--
+    <bean id="amazonDynamoDB" class="com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient">
+        <constructor-arg ref="amazonAWSCredentials"/>
+        <property name="endpoint" value="${aws.dynamodb.endpoint}"/>
+    </bean>
+
+    <bean id="amazonAWSCredentials" class="com.amazonaws.auth.BasicAWSCredentials">
+        <constructor-arg value="${aws.accesskey}"/>
+        <constructor-arg value="${aws.secretkey}"/>
+    </bean>
+
+    <dynamodb:repositories base-package="jp.ddd.server.usecase.gateway.dynamodb"
+                           amazon-dynamodb-ref="amazonDynamoDB" />
+    -->
+    <!-- spring-cache -->
+=======
+    <!-- ================================ dynamoDb ================================ -->
+    <!-- import java config -->
+    <bean name="/DynamoDbConfig" class="jp.ddd.server.other.config.DynamoDbConfig"/>
+
+    <!-- ================================ spring-cache ================================ -->
+>>>>>>> feat/toDynamo
+    <!-- <cache:annotation-driven /> -->
+    <!--<bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager"
+        c:template-ref="redisTemplate" /> -->
+</beans>

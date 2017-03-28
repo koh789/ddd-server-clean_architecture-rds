@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<!-- Default環境のlogbackの設定です。 -->
+<configuration>
+    <!-- <include resource="appenders.xml"/> -->
+    <included>
+        <appender name="APPLICATION-LOG"
+                  class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>/usr/local/tomcat8/logs/app/application.log</file>
+
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>/usr/local/tomcat8/logs/app/application.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+                <maxHistory>60</maxHistory>
+            </rollingPolicy>
+            <encoder>
+                <charset>UTF-8</charset>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss:SSS} [%t] %-5level %logger{2} -> %msg%n</Pattern>
+            </encoder>
+        </appender>
+
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <Target>System.out</Target>
+            <encoder>
+                <charset>UTF-8</charset>
+                <!-- methodは遅いので本番の通常ログには使わない errorは可 -->
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss:SSS} [%t] %-5level %logger{2} -> %msg%n</Pattern>
+            </encoder>
+        </appender>
+    </included>
+    <root level="INFO">
+        <appender-ref ref="APPLICATION-LOG"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
