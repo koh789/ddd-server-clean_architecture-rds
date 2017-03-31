@@ -1,4 +1,4 @@
-package jp.ddd.server.usecase.repository.impl;
+package jp.ddd.server.usecase.aggregate;
 
 import jp.ddd.server.adapter.gateway.rds.entity.RoomRds;
 import jp.ddd.server.usecase.gateway.rds.RoomRdsGateway;

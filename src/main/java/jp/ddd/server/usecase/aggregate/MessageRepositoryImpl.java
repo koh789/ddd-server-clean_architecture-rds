@@ -1,4 +1,4 @@
-package jp.ddd.server.usecase.repository.impl;
+package jp.ddd.server.usecase.aggregate;
 
 import jp.ddd.server.usecase.gateway.rds.MessageReadRdsGateway;
 import jp.ddd.server.usecase.gateway.rds.MessageRdsGateway;
