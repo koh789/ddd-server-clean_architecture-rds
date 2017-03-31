@@ -2,7 +2,7 @@ package jp.ddd.server.adapter.web.controller;
 
 import jp.ddd.server.other.exception.*;
 import jp.ddd.server.other.utils.Msg;
-import jp.ddd.server.adapter.web.presenter.api.output.ErrorJson;
+import jp.ddd.server.adapter.web.presenter.output.ErrorJson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

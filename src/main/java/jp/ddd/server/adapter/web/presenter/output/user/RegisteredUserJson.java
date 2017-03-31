@@ -1,4 +1,4 @@
-package jp.ddd.server.adapter.web.presenter.api.output.user;
+package jp.ddd.server.adapter.web.presenter.output.user;
 
 import lombok.Builder;
 import lombok.Data;

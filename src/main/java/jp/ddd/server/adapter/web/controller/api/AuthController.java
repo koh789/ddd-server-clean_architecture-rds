@@ -2,8 +2,8 @@ package jp.ddd.server.adapter.web.controller.api;
 
 import jp.ddd.server.adapter.web.controller.BaseApi;
 import jp.ddd.server.adapter.web.controller.input.auth.AuthForm;
-import jp.ddd.server.adapter.web.presenter.api.output.ResultJson;
-import jp.ddd.server.adapter.web.presenter.api.output.auth.AuthUserJson;
+import jp.ddd.server.adapter.web.presenter.output.ResultJson;
+import jp.ddd.server.adapter.web.presenter.output.auth.AuthUserJson;
 import jp.ddd.server.domain.entity.user.core.HashPass;
 import jp.ddd.server.domain.entity.user.core.LoginId;
 import jp.ddd.server.other.annotation.NotLoginRequired;

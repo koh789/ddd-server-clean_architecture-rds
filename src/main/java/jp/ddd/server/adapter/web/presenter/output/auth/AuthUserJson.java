@@ -1,4 +1,4 @@
-package jp.ddd.server.adapter.web.presenter.api.output.auth;
+package jp.ddd.server.adapter.web.presenter.output.auth;
 
 import jp.ddd.server.domain.entity.user.User;
 import lombok.Builder;

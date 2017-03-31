@@ -1,7 +1,7 @@
 package jp.ddd.server.usecase.web.outputport;
 
-import jp.ddd.server.adapter.web.presenter.api.output.ResultJson;
-import jp.ddd.server.adapter.web.presenter.api.output.room.RegisteredRoomJson;
+import jp.ddd.server.adapter.web.presenter.output.ResultJson;
+import jp.ddd.server.adapter.web.presenter.output.room.RegisteredRoomJson;
 import jp.ddd.server.domain.entity.room.Room;
 
 /**

@@ -1,8 +1,8 @@
-package jp.ddd.server.adapter.web.presenter.api.impl;
+package jp.ddd.server.adapter.web.presenter.api;
 
-import jp.ddd.server.adapter.web.presenter.api.output.ResultJson;
-import jp.ddd.server.adapter.web.presenter.api.output.auth.AuthUserJson;
-import jp.ddd.server.adapter.web.presenter.api.output.user.RegisteredUserJson;
+import jp.ddd.server.adapter.web.presenter.output.ResultJson;
+import jp.ddd.server.adapter.web.presenter.output.auth.AuthUserJson;
+import jp.ddd.server.adapter.web.presenter.output.user.RegisteredUserJson;
 import jp.ddd.server.domain.entity.user.User;
 import jp.ddd.server.usecase.web.outputport.UserPresenter;
 import lombok.val;

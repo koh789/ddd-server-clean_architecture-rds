@@ -1,6 +1,6 @@
-package jp.ddd.server.adapter.web.presenter.api.output.room;
+package jp.ddd.server.adapter.web.presenter.output.room;
 
-import jp.ddd.server.adapter.web.presenter.api.output.Json;
+import jp.ddd.server.adapter.web.presenter.output.Json;
 import jp.ddd.server.domain.entity.room.Room;
 import lombok.Builder;
 import lombok.Data;

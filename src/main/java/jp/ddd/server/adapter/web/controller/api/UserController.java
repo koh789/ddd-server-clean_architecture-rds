@@ -2,8 +2,8 @@ package jp.ddd.server.adapter.web.controller.api;
 
 import jp.ddd.server.adapter.web.controller.BaseApi;
 import jp.ddd.server.adapter.web.controller.input.user.UserForm;
-import jp.ddd.server.adapter.web.presenter.api.output.ResultJson;
-import jp.ddd.server.adapter.web.presenter.api.output.user.RegisteredUserJson;
+import jp.ddd.server.adapter.web.presenter.output.ResultJson;
+import jp.ddd.server.adapter.web.presenter.output.user.RegisteredUserJson;
 import jp.ddd.server.domain.entity.user.User;
 import jp.ddd.server.other.annotation.NotLoginRequired;
 import jp.ddd.server.other.exception.IllegalDataException;

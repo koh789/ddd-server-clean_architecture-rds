@@ -1,7 +1,7 @@
-package jp.ddd.server.adapter.web.presenter.api.impl;
+package jp.ddd.server.adapter.web.presenter.api;
 
-import jp.ddd.server.adapter.web.presenter.api.output.ResultJson;
-import jp.ddd.server.adapter.web.presenter.api.output.room.RegisteredRoomJson;
+import jp.ddd.server.adapter.web.presenter.output.ResultJson;
+import jp.ddd.server.adapter.web.presenter.output.room.RegisteredRoomJson;
 import jp.ddd.server.domain.entity.room.Room;
 import jp.ddd.server.usecase.web.outputport.RoomPresenter;
 import org.springframework.stereotype.Component;

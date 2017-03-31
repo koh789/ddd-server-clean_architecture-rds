@@ -1,6 +1,6 @@
-package jp.ddd.server.adapter.web.presenter.api.output.message;
+package jp.ddd.server.adapter.web.presenter.output.message;
 
-import jp.ddd.server.adapter.web.presenter.api.output.Json;
+import jp.ddd.server.adapter.web.presenter.output.Json;
 import jp.ddd.server.adapter.gateway.rds.entity.MessageRds;
 import jp.ddd.server.other.utils.Dates;
 import lombok.Builder;

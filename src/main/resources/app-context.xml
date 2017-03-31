@@ -49,7 +49,4 @@
     <!-- mysql ,redis, dynamoDb -->
     <import resource="classpath:dataSource.xml"/>
 
-    <!-- FreeMarker -->
-    <import resource="classpath:/freemarker.xml"/>
-
 </beans>

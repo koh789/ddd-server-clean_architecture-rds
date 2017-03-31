@@ -1,4 +1,4 @@
-package jp.ddd.server.adapter.web.presenter.api.output;
+package jp.ddd.server.adapter.web.presenter.output;
 
 import java.io.Serializable;
 

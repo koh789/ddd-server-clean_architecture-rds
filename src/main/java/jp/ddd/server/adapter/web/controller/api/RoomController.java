@@ -2,11 +2,9 @@ package jp.ddd.server.adapter.web.controller.api;
 
 import jp.ddd.server.adapter.web.controller.BaseApi;
 import jp.ddd.server.adapter.web.controller.input.room.RoomForm;
-import jp.ddd.server.adapter.web.presenter.api.output.ResultJson;
-import jp.ddd.server.adapter.web.presenter.api.output.room.RegisteredRoomJson;
+import jp.ddd.server.adapter.web.presenter.output.ResultJson;
+import jp.ddd.server.adapter.web.presenter.output.room.RegisteredRoomJson;
 import jp.ddd.server.domain.entity.user.core.UserId;
-import jp.ddd.server.domain.repository.RoomRepository;
-import jp.ddd.server.domain.repository.UserRepository;
 import jp.ddd.server.other.utils.Cookies;
 import jp.ddd.server.other.utils.DsLists;
 import jp.ddd.server.usecase.web.inputport.RoomUseCase;
